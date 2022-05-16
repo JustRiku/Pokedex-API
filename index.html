@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pouchdb/7.3.0/pouchdb.min.js"></script>
+    <link rel="stylesheet" href="assets/css/all.min.css">
+</head>
+
+<body>
+    <nav id="menu_list">
+        <ul>
+            <li class="medium">Pokedex</li>
+            <li id="capt">
+                <a href="#">
+                    <div class="count-capt"><span class="icon"><img src="assets/img/pokeball-white-icon.png" alt=""></span>
+                        <p class="count-capt-number">000</p>
+                    </div>
+                </a>
+            </li>
+            <li id="fav">
+                <a href="#">
+                    <div class="count-fav"><span class="icon"><img src="assets/img/heart-solid-white.png" alt=""></span>
+                        <p class="count-fav-number">000</p>
+                    </div>
+                </a>
+            </li>
+            <li class="number">Número</li>
+        </ul>
+    </nav>
+    <div id="poke-list">
+        <div class="filter-bar"><label for="search"></label>
+            <input type="text" placeholder="Nombre del pokemon" class="search fuzzy-search" id="search" name="search">
+            <!-- <button class="btn">Buscar</button> -->
+            <button class="sort" data-sort="name">
+                Nombre <span><i class="fa-solid fa-arrow-down-a-z"></i></span>
+            </button>
+            <button class="sort" data-sort="number-poke">
+                Número <span><i class="fa-solid fa-arrow-down-1-9"></i></span>
+            </button>
+        </div>
+        <div class="flex">
+            <div class="poke-sel">
+                <img class="poke-img"
+                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+                    alt="imagen">
+                <div class="box" data-tilt></div>
+            </div>
+            <ul id="poke" class="list">
+                <button onclick="topFunction()" id="topBtn" title="Principio de lista"><i class="fa-solid fa-angle-up"></i></button>
+                <button onclick="botFunction()" id="botBtn" title="Final de lista"><i class="fa-solid fa-angle-down"></i></button>
+            </ul>
+            <div class="fav-list"></div>
+            <div class="capt-list"></div>
+        </div>
+    </div>
+    <div class="loader">
+        <svg width="200" height="200" viewBox="0 0 100 100">
+            <polyline class="line-cornered stroke-still" points="0,0 100,0 100,100" stroke-width="10" fill="none"></polyline>
+            <polyline class="line-cornered stroke-still" points="0,0 0,100 100,100" stroke-width="10" fill="none"></polyline>
+            <polyline class="line-cornered stroke-animation" points="0,0 100,0 100,100" stroke-width="10" fill="none"></polyline>
+            <polyline class="line-cornered stroke-animation" points="0,0 0,100 100,100" stroke-width="10" fill="none"></polyline>
+          </svg>
+      </div>
+    <!-- <script>
+        $(window).on("load", function () {
+            $(".loader-wrapper").fadeOut("slow");
+        });
+    </script> -->
+    <script src="tilt.jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+    <script src="assets/app/main.js"></script>
+</body>
+
+</html>

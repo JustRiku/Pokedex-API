@@ -1,0 +1,674 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;700&display=swap");
+svg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg) scale(1);
+}
+
+.stroke-still {
+  stroke: #232323;
+}
+
+.stroke-animation {
+  animation: stroke-spacing 1.2s ease-in, stroke-color 4.8s linear;
+  animation-iteration-count: infinite;
+  animation-delay: 0;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+  transform-origin: center center;
+}
+
+@keyframes stroke-spacing {
+  0% {
+    stroke-dasharray: 0 200;
+  }
+  45% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 200 200;
+  }
+  90% {
+    stroke-dashoffset: -200;
+    stroke-dasharray: 200 200;
+  }
+  100% {
+    stroke-dashoffset: -200;
+    stroke-dasharray: 200 200;
+  }
+}
+
+@keyframes stroke-color {
+  0% {
+    stroke: #3498DB;
+  }
+  24% {
+    stroke: #643232;
+  }
+  25% {
+    stroke: #327864;
+  }
+  49% {
+    stroke: #327864;
+  }
+  50% {
+    stroke: #32326e;
+  }
+  74% {
+    stroke: #32326e;
+  }
+  75% {
+    stroke: #78325a;
+  }
+  99% {
+    stroke: #78325a;
+  }
+}
+
+html {
+  background: linear-gradient(-45deg, #000000, #3d3d3d);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+
+body {
+  font-family: 'Inter';
+  background: url("../img/fondo.png");
+  margin: 0 auto;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.body-detail {
+  background: url("../img/fondo2.png");
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+#menu_list ul, #menu_list2 ul {
+  text-transform: capitalize;
+  background: #242424;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  font-size: 20px;
+  color: #fff;
+  height: 70px;
+}
+
+#menu_list ul li, #menu_list2 ul li {
+  margin-right: 1em;
+}
+
+#menu_list ul li a, #menu_list2 ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#menu_list ul li a:active, #menu_list2 ul li a:active {
+  color: #fff;
+}
+
+#menu_list ul .medium, #menu_list2 ul .medium {
+  font-weight: 700;
+  margin-right: 2em;
+}
+
+#menu_list ul .number, #menu_list2 ul .number {
+  position: absolute;
+  right: 25%;
+}
+
+#menu_list ul .detail, #menu_list2 ul .detail {
+  position: absolute;
+  right: 22%;
+}
+
+#menu_list ul .poke-name, #menu_list2 ul .poke-name {
+  font-weight: 700;
+  position: absolute;
+  left: 18%;
+}
+
+#menu_list ul #capt, #menu_list2 ul #capt {
+  margin-left: 10em;
+}
+
+#menu_list ul #fav, #menu_list2 ul #fav {
+  margin-left: 2em;
+}
+
+.count-fav, .count-capt {
+  background: #414141;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 60px;
+  height: 20px;
+  padding: 10px;
+  transition: .3s ease-in-out;
+}
+
+.count-fav:hover, .count-capt:hover {
+  background-color: #FB4C4C;
+}
+
+.count-fav .icon, .count-capt .icon {
+  overflow: hidden;
+}
+
+.count-fav .icon img, .count-capt .icon img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.count-fav p, .count-capt p {
+  margin-left: 7px;
+}
+
+#poke {
+  height: 69vh;
+  width: 100%;
+  overflow-y: scroll;
+  list-style: none;
+  cursor: pointer;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+#poke li {
+  display: flex;
+  height: 60px;
+  width: 500px;
+  background: url("../img/pastilla.png");
+  border-radius: 50px;
+  box-shadow: 5px 5px 5px teal;
+  color: #fff;
+  align-items: center;
+  margin: 20px 0;
+  justify-content: space-between;
+  padding: 0 20px;
+  transition: .3s ease-in-out;
+}
+
+#poke li:hover {
+  transform: scale(1.1);
+}
+
+#poke li button {
+  border: none;
+  background: #ffffff00;
+}
+
+#poke li button img {
+  width: 30px;
+  object-fit: cover;
+}
+
+#poke li img {
+  width: 100px;
+  object-fit: cover;
+}
+
+#poke li .name {
+  text-transform: capitalize;
+}
+
+.flex {
+  display: flex;
+  margin-top: 20px;
+}
+
+.flex .poke-sel {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.flex .poke-sel img {
+  width: 70%;
+  object-fit: cover;
+  margin-left: 80px;
+}
+
+.flex .poke-sel .detail-img {
+  width: 70%;
+}
+
+.flex .poke-sel .box {
+  width: 33rem;
+  height: 33rem;
+  position: absolute;
+  background: #fff;
+  border-radius: 100%;
+  top: 25%;
+  left: 5%;
+  z-index: 0;
+}
+
+.filter-bar {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.filter-bar button, .filter-bar input {
+  margin: 0 10px;
+}
+
+.filter-bar .search {
+  border-radius: 20px;
+  padding: 5px 10px;
+  border: solid 5px #FB4C4C;
+  width: 50%;
+  text-align: center;
+  font-size: 16pt;
+}
+
+.filter-bar .search:focus {
+  outline: none;
+}
+
+.filter-bar button {
+  color: #fff;
+  background: #353535;
+  border-radius: 20px;
+  border: solid 5px #FB4C4C;
+  font-size: 14pt;
+  padding: 5px 10px;
+  transition: .3s ease-in-out;
+}
+
+.filter-bar button:hover {
+  cursor: pointer;
+  background: #FB4C4C;
+}
+
+.sprite, .number-poke, .name {
+  pointer-events: none;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.poke-img {
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
+  width: 40%;
+}
+
+#poke-detail {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#poke-detail h2 {
+  color: #fff;
+}
+
+#poke-detail ul {
+  list-style: none;
+  padding: 0;
+}
+
+#poke-detail ul li {
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  width: 350px;
+  border-radius: 50px;
+  box-shadow: 5px 5px 5px teal;
+  background: #fff;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+#poke-detail ul li .no-capit {
+  text-transform: none;
+}
+
+#poke-detail ul li img {
+  width: 30px;
+}
+
+#poke-list2 {
+  height: 100vh;
+}
+
+#poke-list2 .flex {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+#poke-list2 .flex .sprites {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#poke-list2 .flex .sprites .minibox {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background: #fff;
+  margin: 0 20px;
+}
+
+#poke-list2 .flex .sprites .minibox img {
+  width: 100%;
+  object-fit: cover;
+}
+
+#arrow {
+  border: solid 5px #FB4C4C;
+  outline: none;
+  background: #353535;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px 20px;
+  border-radius: 100%;
+  font-size: 50px;
+  position: fixed;
+  bottom: 20px;
+  left: 2%;
+  transition: .2s ease-in-out;
+}
+
+#arrow:hover {
+  cursor: pointer;
+  background: #FB4C4C;
+}
+
+#prev, #next {
+  color: #fff;
+  font-size: 2em;
+  border: solid 5px #FB4C4C;
+  outline: none;
+  background: #353535;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 100%;
+  transition: .2s ease-in-out;
+}
+
+#prev:hover, #next:hover {
+  cursor: pointer;
+  background: #FB4C4C;
+}
+
+#next {
+  margin-left: 9em;
+}
+
+#prev {
+  margin-left: 2em;
+}
+
+.loader {
+  background: #242424;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  opacity: 1;
+  transition: .3s ease;
+}
+
+#topBtn {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  border: solid 5px #FB4C4C;
+  outline: none;
+  background: #353535;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 100%;
+  font-size: 18pt;
+  transition: .3s ease-in-out;
+}
+
+#topBtn:hover {
+  background: #FB4C4C;
+}
+
+#botBtn {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: 80px;
+  z-index: 99;
+  border: solid 5px #FB4C4C;
+  outline: none;
+  background: #353535;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 100%;
+  font-size: 18pt;
+  transition: .3s ease-in-out;
+}
+
+#botBtn:hover {
+  background: #FB4C4C;
+}
+
+.fav-icon {
+  font-size: 16pt;
+  transition: .3s ease-in-out;
+}
+
+.fav-icon:hover {
+  transform: scale(1.2);
+}
+
+.capt-icon {
+  transition: .3s ease-in-out;
+}
+
+.capt-icon:hover {
+  transform: scale(1.2);
+}
+
+.fav-list, .capt-list {
+  display: none;
+  height: 69vh;
+  width: 100%;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  text-align: center;
+}
+
+.fav-list div, .capt-list div {
+  display: flex;
+  height: 60px;
+  width: 500px;
+  background: url("../img/pastilla.png");
+  border-radius: 50px;
+  box-shadow: 5px 5px 5px teal;
+  color: #fff;
+  align-items: center;
+  margin: 20px 0;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-left: 80px;
+}
+
+.icon {
+  width: 30%;
+}
+
+@media screen and (max-width: 1000px) {
+  .number {
+    display: none;
+  }
+  .flex .poke-sel .box {
+    width: 25rem;
+    height: 25rem;
+  }
+  #poke {
+    width: 80%;
+  }
+  #poke li {
+    width: 300px;
+    height: 40px;
+    font-size: 14px;
+    padding: 0 10px;
+  }
+  #poke li button img {
+    width: 20px;
+  }
+  #poke li img {
+    width: 70px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    background: #FF9090;
+  }
+  .poke-img {
+    display: none;
+  }
+  .img-detail {
+    display: block;
+  }
+  .flex {
+    flex-direction: column;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    height: 80vh;
+  }
+  .flex .poke-sel {
+    display: none;
+  }
+  .flex .poke-sel img {
+    width: 30%;
+    margin: 0 auto;
+  }
+  .flex .sel-detail {
+    display: block;
+    height: 40vh;
+  }
+  .flex .sel-detail .box {
+    top: 17%;
+    left: 35%;
+    width: 15rem;
+    height: 15rem;
+  }
+  #poke {
+    margin: 0 auto;
+  }
+  #poke li {
+    width: 85%;
+    height: 60px;
+    justify-content: space-between;
+    align-self: center;
+    align-items: center;
+    margin-left: 0;
+    padding: 0 20px;
+    font-size: 14px;
+  }
+  #poke li:hover {
+    transform: scale(1.05);
+  }
+  #poke li span {
+    padding: 0 10px;
+  }
+  #poke li img {
+    width: 100px;
+  }
+  #menu_list .number, #menu_list2 .number {
+    display: none;
+  }
+  #menu_list .detail, #menu_list2 .detail {
+    display: none;
+  }
+  #menu_list ul, #menu_list2 ul {
+    justify-content: space-around;
+  }
+  #menu_list ul .medium, #menu_list2 ul .medium {
+    margin-right: 0;
+  }
+  #menu_list ul #capt, #menu_list2 ul #capt {
+    margin-left: 0;
+  }
+  #menu_list ul #fav, #menu_list2 ul #fav {
+    margin-left: -6em;
+  }
+  #menu_list ul .poke-name, #menu_list2 ul .poke-name {
+    position: relative;
+    left: 0;
+  }
+  .count-fav, .count-capt {
+    width: 100px;
+  }
+  .filter-bar {
+    width: 90%;
+  }
+  .filter-bar .search {
+    height: 20px;
+    font-size: 14px;
+  }
+  .filter-bar button {
+    font-size: 14px;
+  }
+  .filter-bar button span {
+    display: none;
+  }
+  .fav-list div, .capt-list div {
+    width: 70%;
+    margin: 20px auto;
+  }
+  #next, #prev {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #menu_list ul #fav, #menu_list2 ul #fav {
+    margin-left: -3em;
+  }
+  .flex .sel-detail {
+    height: 30vh;
+  }
+  .flex .sel-detail .box {
+    top: 17%;
+    left: 35%;
+    width: 10rem;
+    height: 10rem;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

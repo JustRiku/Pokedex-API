@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/all.min.css">
+</head>
+
+<body class="body-detail">
+    <nav id="menu_list2">
+        <ul>
+            <i id="prev" class="fa-solid fa-angle-up"></i>
+            <li class="poke-name">Bulbasaur</li>
+            <i id="next" class="fa-solid fa-angle-down"></i>
+            <li class="detail">Detalles</li>
+        </ul>
+    </nav>
+    <div id="poke-list2">
+        <div class="flex">
+            <div class="poke-sel sel-detail">
+                <img class="poke-img img-detail"
+                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+                    alt="imagen">
+                <div class="box detail-box" data-tilt></div>
+            </div>
+            <div id="poke-detail" class="list"></div>
+        </div>
+    </div>
+    <span><i id="arrow" class="fa-solid fa-angle-left"></i></span>
+    <script src="tilt.jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+    <script src="../app/detail.js"></script>
+</body>
+
+</html>
