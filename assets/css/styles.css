@@ -523,6 +523,7 @@ body {
   justify-content: space-between;
   padding: 0 20px;
   margin-left: 80px;
+  text-transform: capitalize;
 }
 
 .icon {

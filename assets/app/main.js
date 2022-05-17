@@ -17,8 +17,8 @@ window.onload = () => {
             <img class="sprite" src="${sprites.front_default}" alt="${name}" />
             <span class="number-poke">N.º ${id}</span>
             <span class="name">${name}</span>
-            <button class="fav-btn"><img id="${id}" class="fav-icon" src="assets/img/heart-regular-white.png" alt="fav-icon"></button>
-            <button class="capt-btn"><img id="${id}" class="capt-icon" src="assets/img/pokeball-black-icon.png" alt="capt-icon"></button>
+            <button class="fav-btn"><img id="${id}" class="fav-icon" src="assets/img/heart-regular-white.png" alt="${name}"></button>
+            <button class="capt-btn"><img id="${id}" class="capt-icon" src="assets/img/pokeball-black-icon.png" alt="${name}"></button>
             </li>`;
                 list.innerHTML += item;
             })
@@ -113,21 +113,39 @@ let db = new PouchDB('pokefav');
 let pokesFav;
 let addPoke = (e) => {
     e.target.src = "assets/img/heart-solid-white.png"
+    let pokeName = e.target.alt;
     let pokeId = e.target.id;
     let nextPoke = pokesFav.length + 1;
+    console.log(pokeId);
+    console.log(pokeName);
     let doc = {
         "_id": `${nextPoke}`,
         "sprite": `<img class="sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${e.target.id}.png">`,
-        "number": pokeId.value
+        "number": `${pokeId}`,
+        "nameP": `${pokeName}`
     };
     db.put(doc);
-    pokeId.value = "";
+    pokeId = "";
     sprite = "";
+    number = "";
+    nameP = "";
     renderPoke();
 
 }
+let deleteDB = () => {
+    db.destroy().then(function (response) {
+        // success
+    }).catch(function (err) {
+        console.log(err);
+    });
+    db2.destroy().then(function (response) {
+        // success
+    }).catch(function (err) {
+        console.log(err);
+    });
+}
 let renderPoke = () => {
-    favList.innerHTML = "<h2>Lista de favoritos</h2>"
+    favList.innerHTML = `<h2 style="color: white">Lista de favoritos</h2>`
     db.allDocs({include_docs: true }, function (err, docs) {
         if (err) {
             return console.log(err);
@@ -137,6 +155,8 @@ let renderPoke = () => {
                 let poke = `
                 <div>
                 <span class="sprite">${element.doc.sprite}</span>
+                <span class="numberFav">N.º ${element.doc.number}</span>
+                <span class="nameFav">${element.doc.nameP}</span>
                 </div>`
                 let numberCount = favList.children.length;
                 favList.innerHTML += poke;
@@ -151,22 +171,26 @@ let db2 = new PouchDB('pokecapt');
 let pokesCapt;
 let addPoke2 = (e) => {
     e.target.src = "assets/img/pokeball-white-icon.png"
+    let pokeName = e.target.alt;
     let pokeId = e.target.id;
     let nextPoke = pokesCapt.length + 1;
     let doc = {
         "_id": `${nextPoke}`,
         "sprite": `<img class="sprite" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${e.target.id}.png">`,
-        "number": pokeId.value
+        "number": `${pokeId}`,
+        "nameP": `${pokeName}`
     };
     db2.put(doc);
-    pokeId.value = "";
+    pokeId = "";
     sprite = "";
+    number = "";
+    nameP = "";
     renderPoke2();
     console.log(e.target.id);
 }
 let renderPoke2 = () => {
-    captList.innerHTML = "<h2>Lista de capturados</h2>"
-    db.allDocs({include_docs: true }, function (err, docs) {
+    captList.innerHTML = `<h2 style="color: white">Lista de capturados</h2>`
+    db2.allDocs({include_docs: true }, function (err, docs) {
         if (err) {
             return console.log(err);
         } else {
@@ -175,6 +199,8 @@ let renderPoke2 = () => {
                 let poke = `
                 <div>
                 <span class="sprite">${element.doc.sprite}</span>
+                <span class="numberFav">N.º ${element.doc.number}</span>
+                <span class="nameFav">${element.doc.nameP}</span>
                 </div>`
                 let numberCount = captList.children.length;
                 captList.innerHTML += poke;
